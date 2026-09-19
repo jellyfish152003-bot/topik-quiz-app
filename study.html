@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block title %}학습 카드 — {{ current_cat }}{% endblock %}
+{% block content %}
+
+<div class="chips">
+  {% for cat in categories %}
+    <a class="chip {% if cat == current_cat %}active{% endif %}"
+       href="{{ url_for('study', cat=cat) }}">{{ cat }}</a>
+  {% endfor %}
+</div>
+
+{% if words %}
+<div class="deck" id="deck">
+  {% for w in words %}
+  <div class="flip-card" onclick="this.classList.toggle('flipped')">
+    <div class="flip-inner">
+      <div class="face front">
+        <span class="cat-tag">{{ w.cat }}</span>
+        <p class="kr-word">{{ w.kr }}</p>
+        <p class="roman">[{{ w.ro }}]</p>
+        <p class="hint">눌러서 뜻 보기 · အဓိပ္ပာယ်ကြည့်ရန် နှိပ်ပါ</p>
+      </div>
+      <div class="face back">
+        <p class="my-meaning">{{ w.my }}</p>
+        <p class="en-meaning">{{ w.en }}</p>
+        <div class="example">
+          <p class="kr-ex">{{ w.ex }}</p>
+          <p class="my-ex">{{ w.ex_my }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% else %}
+<p class="lead">이 주제에는 아직 단어가 없어요.</p>
+{% endif %}
+
+<div class="row-actions">
+  <a class="btn primary" href="{{ url_for('quiz_start', cat=current_cat) }}">이 주제로 퀴즈 풀기</a>
+  <a class="btn ghost" href="{{ url_for('home') }}">홈으로</a>
+</div>
+
+{% endblock %}

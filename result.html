@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}퀴즈 결과{% endblock %}
+{% block content %}
+
+<div class="qcard result">
+  <p class="hint">퀴즈 완료 · စာမေးပွဲ ပြီးဆုံးပါပြီ</p>
+  <p class="score">{{ score }} / {{ total }}</p>
+  <p class="best">최고 기록 · အမြင့်ဆုံးရမှတ် : {{ best }} / {{ total }}</p>
+  <div class="row-actions">
+    <a class="btn primary" href="{{ url_for('quiz_start', cat=cat) }}">다시 풀기</a>
+    <a class="btn ghost" href="{{ url_for('home') }}">홈으로</a>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% block title %}TOPIK 어휘{% endblock %}</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@500;700&family=Noto+Sans+KR:wght@400;500;700&family=Noto+Sans+Myanmar:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a href="{{ url_for('home') }}" class="brand-link">
+      <div class="brand">
+        <h1>TOPIK 어휘</h1>
+        <p class="sub">외국인 유학생을 위한 어휘 학습 및 퀴즈</p>
+        <p class="sub my">နိုင်ငံခြားကျောင်းသားများအတွက် TOPIK ဝေါဟာရ လေ့လာမှု</p>
+      </div>
+    </a>
+    <div class="mark" aria-hidden="true"></div>
+  </header>
+
+  {% block content %}{% endblock %}
+
+  <footer class="note">Flask로 만든 학습용 예시 웹 서비스 · Flask ဖြင့်ဖန်တီးထားသော လေ့လာရေးဥပမာ</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}TOPIK 어휘 — 홈{% endblock %}
+{% block content %}
+
+<p class="lead">주제를 선택하고 학습 방식을 골라보세요.</p>
+<p class="lead my">အကြောင်းအရာကို ရွေးပြီး လေ့လာရမည့်ပုံစံကို ရွေးပါ။</p>
+
+<div class="cat-grid">
+  {% for cat in categories %}
+  <div class="cat-card">
+    <h3>{{ cat }}</h3>
+    <div class="cat-actions">
+      <a class="btn" href="{{ url_for('study', cat=cat) }}">학습 카드</a>
+      <a class="btn primary" href="{{ url_for('quiz_start', cat=cat) }}">퀴즈 시작</a>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+{% endblock %}

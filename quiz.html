@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}퀴즈 — 문제 {{ q_num }}{% endblock %}
+{% block content %}
+
+<div class="quiz-head">
+  <span>문제 {{ q_num }} / {{ q_total }}</span>
+  <strong>점수 {{ score }}</strong>
+</div>
+
+<div class="qcard">
+  <p class="kr-word">{{ word.kr }}</p>
+  <p class="roman">[{{ word.ro }}]</p>
+</div>
+
+<p class="qprompt">알맞은 뜻을 고르세요 · မှန်ကန်သောအဓိပ္ပာယ်ကို ရွေးပါ</p>
+
+<form method="post" action="{{ url_for('quiz_answer') }}">
+  <div class="choices">
+    {% for opt in options %}
+    <button type="submit" name="choice" value="{{ opt }}" class="choice">{{ opt }}</button>
+    {% endfor %}
+  </div>
+</form>
+
+{% endblock %}
