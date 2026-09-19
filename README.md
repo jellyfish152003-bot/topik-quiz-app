@@ -6,7 +6,7 @@
 ```bash
 pip install -r requirements.txt
 python app.py
-```ဗ
+```
 
 터미널에 나오는 주소로 접속하세요:
 ```
